@@ -1,21 +1,10 @@
 
 public class Player {
 	
-    private int life;
-    private int ammo;
-    private int shield;
-
-
-    public Player(int life, int ammo, int shield) 
-
-    {
-        super();
-        this.life = 3;
-        this.ammo = 0;
-        this.shield = 0;
-    }
-
-
+    public int life;
+    public int ammo;
+    public int shield;
+    public int choice;
 
     public int getLife() {
         return life;
@@ -47,7 +36,16 @@ public class Player {
     }
 
 	
-	
+    public int getChoice() {
+		return choice;
+	}
+
+
+
+	public void setChoice(int choice) {
+		this.choice = choice;
+	}
+
 	
 
 }
