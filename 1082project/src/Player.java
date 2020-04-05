@@ -6,8 +6,9 @@ public class Player
     private int ammo;
     private int shield;
 
+    private static int count;
 
-    public Game(int life, int ammo, int shield) 
+    public Player (int life, int ammo, int shield) 
 
     {
         this.life = 3;
@@ -47,8 +48,33 @@ public class Player
     }
 
 
-    public int shoot()
+    public int shoot(int bullet)
+    
+    {
+    	bullet = 0;
+    	
+    	if()
+    }
+    
+    public int reload()
+    
     {
     	
     }
+    
+    public int block()
+    {
+    	
+    }
+    
+    
+    public boolean lose()
+    {
+    	
+    }
+    
+    
+    
+    
+    
 }
