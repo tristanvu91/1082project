@@ -1,24 +1,25 @@
+import java.util.Scanner;
 
-public class Player 
-{
+public class Player {
+	
+    public int life;
+    public int ammo;
+    public int shield;
+    public int choice;
 
-    private int life;
-    private int ammo;
-    private int shield;
-
-    private static int count;
-
-    public Player (int life, int ammo, int shield) 
-
-    {
-        this.life = 3;
-        this.ammo = 0;
-        this.shield = 0;
-    }
+    
+    
+    
+    public Player() {
+		super();
+		this.life = 3;
+		this.ammo = 0;
+		this.shield = 0;
+		this.choice = 0;
+	}
 
 
-
-    public int getLife() {
+	public int getLife() {
         return life;
     }
 
@@ -47,34 +48,17 @@ public class Player
         this.shield = shield;
     }
 
+	
+    public int getChoice() {
+		return choice;
+	}
 
-    public int shoot(int bullet)
-    
-    {
-    	bullet = 0;
-    	
-    	if()
-    }
-    
-    public int reload()
-    
-    {
-    	
-    }
-    
-    public int block()
-    {
-    	
-    }
-    
-    
-    public boolean lose()
-    {
-    	
-    }
-    
-    
-    
-    
-    
+
+
+	public void setChoice(int choice) {
+		this.choice = choice;
+	}
+
+	
+
 }
