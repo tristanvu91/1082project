@@ -3,12 +3,22 @@ import java.util.Scanner;
 public class Game
 
 {	
+	private static int rounds;
+	
 	public Human player1 = new Human();
 	public Computer comp = new Computer();
 
 
 
-	public void Fight() {
+	public Game() {
+		this.player1 = player1;
+		this.comp = comp;
+		rounds++;
+		
+		
+	}
+
+	public void startMatch() {
 		
 		Scanner playerChoice = new Scanner(System.in);
 
@@ -81,6 +91,9 @@ public class Game
 		
 	}
 
+
+	
+	
 	public boolean hasWinner() {
 		
 		boolean winner = true;

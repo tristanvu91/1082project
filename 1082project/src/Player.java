@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Player {
 	
@@ -11,7 +11,6 @@ public class Player {
     
     
     public Player() {
-		super();
 		this.life = 3;
 		this.ammo = 0;
 		this.shield = 0;
@@ -60,5 +59,16 @@ public class Player {
 	}
 
 	
+	public void rules () {
+		
+		if( this.choice == 1 && this.ammo == 0)
+		{
+			System.out.println("No Ammo to Shoot ... ");
+			this.choice = 0;
+		}
+		
+		
+	}
+		
 
 }
