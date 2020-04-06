@@ -5,14 +5,14 @@ public class Game
 {	
 	private static int rounds;
 	
-	public Human player1 = new Human();
-	public Computer comp = new Computer();
+	public Human player1;
+	public Computer comp;
 
 
 
 	public Game() {
-		this.player1 = player1;
-		this.comp = comp;
+		this.player1 = new Human();
+		this.comp = new Computer();
 		rounds++;
 		
 		
@@ -52,37 +52,97 @@ public class Game
 			if(comp.getChoice() == 1) {
 				
 				player1.life  -= 1;
+				player1.ammo -= 1;
+				player1.shield = 3;
+				
 				comp.life  -= 1;
+				comp.ammo  -= 1;
+				comp.shield  = 3;
 							
 			}
 			else if(comp.getChoice() == 2) {
-				comp.life  -= 1;
+				
+	
+				player1.ammo -= 1;
+				player1.shield = 3;
+				
+
+				comp.shield  -= 1;
+				
 			}
+			
+			
 			else if(comp.getChoice() == 3) {
+				player1.ammo -= 1;
+				player1.shield = 3;
+				
 				comp.life  -= 1;
+				comp.ammo  = 3;
+				comp.shield  = 3;
+				
 			}
 		}
 		else if (player1.getChoice() == 2) {
 			if(comp.getChoice() == 1) {
-				player1.life  -= 1;
+				
+
+				player1.shield -= 1;
+				
+				comp.ammo  -= 1;
+				comp.shield  = 3;
 			}
+			
 			else if(comp.getChoice() == 2) {
+				
+
+				player1.shield -= 1;
+				
+
+				comp.shield  -= 1;
 				
 			}
 			else if(comp.getChoice() == 3) {
+				
+	
+
+				player1.shield -= 1;
+				
+	
+				comp.ammo  = 3;
+				comp.shield  = 3;
 				
 			}
 		}
 		
-		else if (player1.getChoice() == 3) {
-			
+		else if (player1.getChoice() == 3) {			
 			if(comp.getChoice() == 1) {
+				
 				player1.life  -= 1;
+				player1.ammo = 3;
+				player1.shield = 3;
+				
+				comp.ammo  -= 1;
+				comp.shield  = 3;
+				
 			}
 			else if(comp.getChoice() == 2) {
 				
+
+				player1.ammo = 3;
+				player1.shield = 3;
+				
+
+				comp.shield  -= 1;
+				
 			}
 			else if(comp.getChoice() == 3) {
+				
+				player1.ammo = 3;
+				player1.shield = 3;
+				
+
+				comp.ammo  = 3;
+				comp.shield  = 3;
 				
 			}
 		}
