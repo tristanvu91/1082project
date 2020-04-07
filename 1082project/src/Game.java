@@ -13,7 +13,16 @@ public class Game {
 
     public void startMatch() {
         Scanner playerChoice = new Scanner(System.in);
-
+        
+        System.out.println("Welcome " + human.getName() + " to : Shoot, Shield, Reload");
+        System.out.println("Rules of the game: ");
+        System.out.println("--------------------");
+        System.out.println("1: You start with 3 lives.");
+        System.out.println("2: You cannot shoot if you do not have ammo.. Duh.");
+        System.out.println("3: You cannot block more than 3 times in a row. "
+        				 + "*Caution: If you try to do more than 3 blocks, Your shield will break!");
+        System.out.println("4: To win, you must deplete your oppenents health to zero!");
+        System.out.println("Have fun, and remember to stay safe!");
         do {
             computer.computerChoice();
 
@@ -110,12 +119,12 @@ public class Game {
 		}
 		if(human.getShield() > 3)
 		{
-			System.out.println("Cannot shield more than 3 times in a row. Your shield is now zero.");
+			System.out.println("Cannot shield more than 3 times in a row. Your shield broke!");
 			human.setShield(0);
 		}
 		if(computer.getShield() > 3)
 		{
-			System.out.println("Cannot shield more than 3 times in a row. Your shield is now zero.");
+			System.out.println("Cannot shield more than 3 times in a row. Your shield broke!");
 			computer.setShield(0);
 		}
 	}
