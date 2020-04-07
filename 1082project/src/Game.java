@@ -31,10 +31,15 @@ public class Game
 			
 			computeFight();
 			
-			System.out.println("computer life: " + comp.getLife());
+			
 	        System.out.println("player life: " + player1.getLife());
-			System.out.println("computer Choice: " + comp.getChoice());
+	        System.out.println("player ammo: " + player1.getAmmo());
 	        System.out.println("player Choice: " + player1.getChoice());
+	        
+	        System.out.println("computer life: " + comp.getLife());
+	        System.out.println("player ammo: " + player1.getAmmo());
+			System.out.println("computer Choice: " + comp.getChoice());
+	        
 
 
 		} while (hasWinner() != true);
@@ -45,7 +50,12 @@ public class Game
 	}
 	
 	//choice | 1 = shoot | 2 = guard | 3 = reload |
-	public void computeFight() { //TODO input vadilation - life/ammo - bounds 
+	
+	public void computeFight() 
+	
+	{
+		
+		// Player cannot shoot with no ammo.
 
 		if (player1.getChoice() == 1 && player1.getAmmo() == 0)
 		{
@@ -88,13 +98,15 @@ public class Game
 				
 			}
 			else if(comp.getChoice() == 3) {
-				
+				comp.setAmmo(0);
 			}
 		}
 		
 		//Reloading Process
 		
 		else if (player1.getChoice() == 3) {
+			
+			player1.setAmmo(0);
 			
 			if(comp.getChoice() == 1 && comp.getAmmo() != 0) {
 				player1.life  -= 1;
@@ -103,17 +115,14 @@ public class Game
 				
 			}
 			else if(comp.getChoice() == 3) {
+				comp.setAmmo(0);
 				
 			}
 		}
 		
 		
 		
-		
 	}
-
-
-	
 	
 	public boolean hasWinner() {
 		

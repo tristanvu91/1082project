@@ -29,12 +29,12 @@ public class Player {
 
 
     public int getAmmo() {
-        return ammo++;
+        return ammo;
     }
 
 
     public void setAmmo(int ammo) {
-        this.ammo = ammo;
+        this.ammo = ammo ++;
     }
 
 
