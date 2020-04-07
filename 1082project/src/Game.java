@@ -9,15 +9,18 @@ public class Game{
 	public Game() {
 		this.player1 = new Human();
 		this.comp = new Computer();
-		rounds++;		
+		rounds = 1;
 	}
-
-	// this methods start the game
+	
+	/**
+	 * this methods start the game
+	 */
 	public void startMatch() {
 		Scanner playerChoice = new Scanner(System.in);
 		do {
 			comp.computerChoice();
-			System.out.println("shoot[1], guard[2],reload[3]: ");  //TODO scanner input for integer
+			System.out.println("\n\nRound number" + rounds);
+			rounds ++;
 			player1.playerChoice();
 			computeFight();
 
@@ -35,41 +38,47 @@ public class Game{
 			System.out.println("--------------");
 			System.out.println("case number" + FightCase());
 
+			
+
 		} while (hasWinner() != true);
 		playerChoice.close();
 	}
-	
-	//this methods return an integer(1-9) for all possible fight scenario
+
+	/**
+	 * @return this methods return an integer(1-9) for all possible fight scenario
+	 */
 	public int FightCase() {
 		if (player1.choice == 1) {
-			if (comp.choice == 1)				//Shoot VS Shoot
+			if (comp.choice == 1)			//Shoot VS Shoot
 				return 1;
 			else if (comp.choice == 2) {		//Shoot VS Shield
 				return 2;}
 			else if (comp.choice == 3) {		//Shoot VS Reload
 				return 3;}
 		}
-		else if (player1.choice == 2)
-			if (comp.choice ==1)				//Shield VS Shoot
+		if (player1.choice == 2)
+			if (comp.choice ==1)			//Shield VS Shoot
 				return 4;
 			else if (comp.choice == 2) {		//Shield VS Shield
 				return 5;}
 			else if (comp.choice == 3) {		//Shield VS Reload
 				return 6;
 			}
-			else if (player1.choice == 3)		//Reload VS Shoot
-				if (comp.choice ==1)
-					return 7;
-				else if (comp.choice ==2) {		//Reload VS Shield
-					return 8;
-				}
-				else if (comp.choice ==3) {		//Reload VS Reload
-					return 9;
-				}
+		if (player1.choice == 3)		//Reload VS Shoot
+			if (comp.choice ==1)
+				return 7;
+			else if (comp.choice ==2) {		//Reload VS Shield
+				return 8;
+			}
+			else if (comp.choice ==3) {		//Reload VS Reload
+				return 9;
+			}
 		return 0;
 	}
-	
-	//this methods compute data for all possible fight scenario
+
+	/**
+	 * this methods compute data for all possible fight scenario given by fightCase() method
+	 */
 	public void computeFight() {
 		int result = FightCase();
 		switch(result) {
@@ -128,7 +137,9 @@ public class Game{
 		}
 	}
 
-	// this methods return "true" if a player life reach 0
+	/**
+	 * @return this methods return "true" if a player life reach 0
+	 */
 	public boolean hasWinner() {
 		if(player1.getLife() == 0 || comp.getLife() == 0) {
 			if(player1.getLife() == comp.getLife()) {
