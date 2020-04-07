@@ -47,9 +47,24 @@ public class Game
 	//choice | 1 = shoot | 2 = guard | 3 = reload |
 	public void computeFight() { //TODO input vadilation - life/ammo - bounds 
 
+		if (player1.getChoice() == 1 && player1.getAmmo() == 0)
+		{
+			System.out.println("No Ammo to Shoot ... You must Reload First. ");
+			player1.setChoice(0);
+			
+		}
 		
-		if (player1.getChoice() == 1) {
-			if(comp.getChoice() == 1) {
+		if (comp.getChoice() == 1 && comp.getAmmo() == 0)
+		{
+			System.out.println("No Ammo to Shoot ... You must Reload First.");
+			comp.setChoice(0);
+			
+		}
+		
+		//Shooting
+		
+		if (player1.getChoice() == 1 && player1.getAmmo() != 0) {
+			if(comp.getChoice() == 1 && comp.getAmmo() != 0) {
 				
 				player1.life  -= 1;
 				comp.life  -= 1;
@@ -62,6 +77,9 @@ public class Game
 				comp.life  -= 1;
 			}
 		}
+		
+		// Guarding 
+		
 		else if (player1.getChoice() == 2) {
 			if(comp.getChoice() == 1) {
 				player1.life  -= 1;
@@ -74,9 +92,11 @@ public class Game
 			}
 		}
 		
+		//Reloading Process
+		
 		else if (player1.getChoice() == 3) {
 			
-			if(comp.getChoice() == 1) {
+			if(comp.getChoice() == 1 && comp.getAmmo() != 0) {
 				player1.life  -= 1;
 			}
 			else if(comp.getChoice() == 2) {
@@ -86,6 +106,7 @@ public class Game
 				
 			}
 		}
+		
 		
 		
 		

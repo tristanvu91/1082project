@@ -29,7 +29,7 @@ public class Player {
 
 
     public int getAmmo() {
-        return ammo;
+        return ammo++;
     }
 
 
@@ -59,16 +59,6 @@ public class Player {
 	}
 
 	
-	public void rules () {
-		
-		if( this.choice == 1 && this.ammo == 0)
-		{
-			System.out.println("No Ammo to Shoot ... ");
-			this.choice = 0;
-		}
-		
-		
-	}
-		
+
 
 }
