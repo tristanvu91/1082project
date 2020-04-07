@@ -28,13 +28,16 @@ public class Game {
             System.out.println("player life: " + human.getLife());
             System.out.println("player ammo: " + human.getAmmo());
             System.out.println("player Choice: " + human.getChoice());
+            System.out.println("player shield: " + human.getShield());
+            System.out.println();
 
             System.out.println("Computer Counters: ");
             System.out.println("---------------------");
             System.out.println("computer life: " + computer.getLife());
             System.out.println("computer ammo: " + computer.getAmmo());
             System.out.println("computer Choice: " + computer.getChoice());
-            
+            System.out.println("computer shield: " + computer.getShield());
+            System.out.println();
             
         } while (hasWinner() == false);
 
@@ -48,6 +51,7 @@ public class Game {
 		outOfBounds();
     }
 
+    // Entering [1] will shoot
 	private void shoot() {
 		if (human.getChoice() == 1 && human.getAmmo() == 0) {
 			System.out.println("No Ammo to Shoot ... You must Reload First. ");
@@ -60,46 +64,74 @@ public class Game {
 		if ((human.getChoice() == 1 && human.getAmmo() > 0) && (computer.getChoice() == 1 && computer.getAmmo() > 0)) {
 			human.life -= 1;
 			computer.life -= 1;
+			human.setShield(0);
+			computer.setShield(0);
 		}
 
 		if ((human.getChoice() == 1 && human.getAmmo() > 0 && computer.getChoice() == 2)) {
 			human.setAmmo(human.getAmmo()-1);
+			computer.setShield(computer.getShield() + 1);
 		}
 
 		if ((human.getChoice() == 1 && human.getAmmo() > 0 && computer.getChoice() == 3)) {
 			computer.life -= 1;
+			human.setShield(0);
+			computer.setShield(0);
 		}
 
 		if ((computer.getChoice() == 1 && computer.getAmmo() > 0 && human.getChoice() == 2)) {
 			computer.setAmmo(computer.getAmmo()-1);
+			human.setShield(human.getShield() + 1);
 		}
 
 		if ((computer.getChoice() == 1 && computer.getAmmo() > 0 && human.getChoice() == 3)) {
 			human.life -= 1;
+			human.setShield(0);
+			computer.setShield(0);
 		}
 	}
 
+	//Entering [2] will guard.
 	private void guard() {
 		if (human.getChoice() == 2 && computer.getChoice() == 2) {
 			System.out.println("Both players are guarding, nothing happens.");
+			human.setShield(human.getShield() + 1);
+			computer.setShield(computer.getShield() + 1);
 		}
 
 		if (human.getChoice() == 2 && computer.getChoice() == 3) {
 			computer.setAmmo(computer.getAmmo()+1);
+			human.setShield(human.getShield() + 1);
 		}
 
 		if (computer.getChoice() == 2 && human.getChoice() == 3) {
-			human.setAmmo(computer.getAmmo()+1);
+			human.setAmmo(human.getAmmo()+1);
+			computer.setShield(computer.getShield() + 1);
+		}
+		if(human.getShield() > 3)
+		{
+			System.out.println("Cannot shield more than 3 times in a row. Your shield is now zero.");
+			human.setShield(0);
+		}
+		if(computer.getShield() > 3)
+		{
+			System.out.println("Cannot shield more than 3 times in a row. Your shield is now zero.");
+			computer.setShield(0);
 		}
 	}
 
+	//Entering [3] will reload.
 	private void reload() {
 		if(human.getChoice() == 3 && computer.getChoice() == 1)  {
 			human.setAmmo(human.getAmmo() + 1);
+			human.setShield(0);
+			computer.setShield(0);
 		}
 		if (computer.getChoice() == 3 && human.getChoice() == 3) {
 			human.setAmmo(human.getAmmo()+1);
 			computer.setAmmo(computer.getAmmo()+1);
+			human.setShield(0);
+			computer.setShield(0);
 			System.out.println("Both players are relaoding, nothing happens.");
 		}
 	}
