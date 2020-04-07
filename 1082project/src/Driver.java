@@ -1,15 +1,9 @@
-
 public class Driver {
-	
 	public static void main(String[]args) {
-		
+		Human human = new Human();
+		Computer computer = new Computer();
+		Game game = new Game(human, computer);
 
-		Game game1 = new Game();
-		
-		
-		game1.startMatch();
-		
-
-}
-	
+		game.startMatch();
+	}
 }

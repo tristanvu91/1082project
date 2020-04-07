@@ -1,16 +1,19 @@
 
+
 public class Player {
-	//instance variable
+	
     public int life;
     public int ammo;
     public int shield;
     public int choice;
 
-    //no argument constructor
+    
+    
+    
     public Player() {
 		this.life = 3;
-		this.ammo = 3;
-		this.shield = 3;
+		this.ammo = 0;
+		this.shield = 0;
 		this.choice = 0;
 	}
 
@@ -55,24 +58,7 @@ public class Player {
 		this.choice = choice;
 	}
 
-	/**
-	 * @return this method returns an integer (0-4) for when shield or ammo reaches 0
-	 */
-	public int rules () {		
-		if( this.ammo == 0 && this.shield == 0)		// ammmo and shield = 0
-		{
-			return 1;
-		}		
-		else if( this.ammo == 0)		//ammo = 0
-		{
-			return 2;
-		}
-		else if(this.shield == 0)		//shield = 0
-		{
-			return 3;
-		}		
-		return 0;		//ammo and shield != 0
-	}
-		
+	
+
 
 }
