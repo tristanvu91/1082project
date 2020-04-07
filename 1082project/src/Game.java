@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Game {
-    private static int rounds;
+    private static int rounds = 1;
 
     public Human human;
     public Computer computer;
@@ -9,7 +9,6 @@ public class Game {
     public Game(Human human, Computer computer) {
         this.human = human;
         this.computer = computer;
-        rounds++;
     }
 
     public void startMatch() {
@@ -23,13 +22,13 @@ public class Game {
             
             computeFight();
             
+            System.out.println("Round: " + rounds++);
             System.out.println("Player Counters: ");
             System.out.println("---------------------");
             System.out.println("player life: " + human.getLife());
             System.out.println("player ammo: " + human.getAmmo());
             System.out.println("player Choice: " + human.getChoice());
 
-            
             System.out.println("Computer Counters: ");
             System.out.println("---------------------");
             System.out.println("computer life: " + computer.getLife());
