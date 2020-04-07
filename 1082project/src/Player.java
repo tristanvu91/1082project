@@ -12,8 +12,8 @@ public class Player {
     
     public Player() {
 		this.life = 3;
-		this.ammo = 0;
-		this.shield = 0;
+		this.ammo = 3;
+		this.shield = 3;
 		this.choice = 0;
 	}
 
@@ -59,15 +59,25 @@ public class Player {
 	}
 
 	
-	public void rules () {
+	public int rules () {
 		
-		if( this.choice == 1 && this.ammo == 0)
+		if( this.shield == 0)
 		{
 			System.out.println("No Ammo to Shoot ... ");
-			this.choice = 0;
+			return 1;
+		}		
+		else if( this.ammo == 0)
+		{
+			System.out.println("No Ammo to Shoot ... ");
+			return 2;
+		}
+		else if( this.ammo == 0 && this.shield == 0)
+		{
+			System.out.println("No Ammo to Shoot ... ");
+			return 3;
 		}
 		
-		
+		return 0;
 	}
 		
 
