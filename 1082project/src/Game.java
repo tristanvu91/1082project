@@ -21,6 +21,7 @@ public class Game{
 			player1.playerChoice();
 			computeFight();
 
+
 			System.out.println("computer life: " + comp.getLife());
 			System.out.println("player life: " + player1.getLife());
 			System.out.println("--------------");	
@@ -34,6 +35,7 @@ public class Game{
 			System.out.println("player shield: " + player1.shield);
 			System.out.println("--------------");
 			System.out.println("case number" + FightCase());
+
 
 		} while (hasWinner() != true);
 		playerChoice.close();
@@ -55,14 +57,12 @@ public class Game{
 			else if (comp.choice == 2) {		//Shield VS Shield
 				return 5;}
 			else if (comp.choice == 3) {		//Shield VS Reload
-				return 6;
-			}
+				return 6;}
 			else if (player1.choice == 3)		//Reload VS Shoot
 				if (comp.choice ==1)
 					return 7;
 				else if (comp.choice ==2) {		//Reload VS Shield
-					return 8;
-				}
+					return 8;}
 				else if (comp.choice ==3) {		//Reload VS Reload
 					return 9;
 				}

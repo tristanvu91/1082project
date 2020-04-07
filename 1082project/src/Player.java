@@ -34,7 +34,7 @@ public class Player {
 
 
     public void setAmmo(int ammo) {
-        this.ammo = ammo;
+        this.ammo = ammo ++;
     }
 
 
@@ -58,7 +58,7 @@ public class Player {
 		this.choice = choice;
 	}
 
-	
+
 	public int rules () {
 		
 		if( this.shield == 0)
@@ -79,6 +79,4 @@ public class Player {
 		
 		return 0;
 	}
-		
-
 }
