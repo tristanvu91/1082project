@@ -22,13 +22,18 @@ public class Game {
             human.choice = playerChoice.nextInt();
 
             computeFight();
-
+            
+            System.out.println("Player Counters: ");
+            System.out.println("---------------------");
             System.out.println("player life: " + human.getLife());
             System.out.println("player ammo: " + human.getAmmo());
             System.out.println("player Choice: " + human.getChoice());
 
+            
+            System.out.println("Computer Counters: ");
+            System.out.println("---------------------");
             System.out.println("computer life: " + computer.getLife());
-            System.out.println("player ammo: " + human.getAmmo());
+            System.out.println("computer ammo: " + computer.getAmmo());
             System.out.println("computer Choice: " + computer.getChoice());
         } while (hasWinner() == false);
 
