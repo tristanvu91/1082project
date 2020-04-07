@@ -20,7 +20,7 @@ public class Game {
 
             System.out.println("shoot[1], guard[2],reload[3]: ");  
             human.choice = playerChoice.nextInt();
-
+            
             computeFight();
             
             System.out.println("Player Counters: ");
@@ -35,6 +35,8 @@ public class Game {
             System.out.println("computer life: " + computer.getLife());
             System.out.println("computer ammo: " + computer.getAmmo());
             System.out.println("computer Choice: " + computer.getChoice());
+            
+            
         } while (hasWinner() == false);
 
         playerChoice.close();
@@ -93,6 +95,9 @@ public class Game {
 	}
 
 	private void reload() {
+		if(human.getChoice() == 3 && computer.getChoice() == 1)  {
+			human.setAmmo(human.getAmmo() + 1);
+		}
 		if (computer.getChoice() == 3 && human.getChoice() == 3) {
 			human.setAmmo(human.getAmmo()+1);
 			computer.setAmmo(computer.getAmmo()+1);
