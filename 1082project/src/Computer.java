@@ -27,9 +27,5 @@ public class Computer extends Player {
 			choice = (int)(Math.random()*3)+1;
 			break;}
 		}	
-		
-		
-
 	}
-
 }

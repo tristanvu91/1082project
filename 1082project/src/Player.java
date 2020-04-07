@@ -1,5 +1,4 @@
 
-
 public class Player {
 	//instance variable
     public int life;
