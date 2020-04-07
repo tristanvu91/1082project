@@ -18,7 +18,7 @@ public class Game {
         do {
             computer.computerChoice();
 
-            System.out.println("shoot[1], guard[2],reload[3]: ");  //TODO scanner input for integer
+            System.out.println("shoot[1], guard[2],reload[3]: ");  
             human.choice = playerChoice.nextInt();
 
             computeFight();
