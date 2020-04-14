@@ -58,6 +58,12 @@ public class Player {
 		this.choice = choice;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Player [life=" + life + ", ammo=" + ammo + ", shield=" + shield + ", choice=" + choice + "]";
+	}
+
 	
 
 

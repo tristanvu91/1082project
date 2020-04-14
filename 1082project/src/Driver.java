@@ -4,6 +4,6 @@ public class Driver {
 		Computer computer = new Computer();
 		Game game = new Game(human, computer);
 
-		game.startMatch();
+//		game.startMatch();
 	}
 }
