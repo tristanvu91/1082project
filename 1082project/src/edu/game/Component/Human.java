@@ -1,3 +1,4 @@
+package edu.game.Component;
 import java.util.Scanner;
 
 public class Human extends Player {
