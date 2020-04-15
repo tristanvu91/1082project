@@ -1,3 +1,4 @@
+package edu.game.Component;
 
 
 public class Player {

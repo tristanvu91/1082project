@@ -1,4 +1,4 @@
-
+package edu.game.Component;
 public class Computer extends Player {
 	
 	private String name = "computer";
