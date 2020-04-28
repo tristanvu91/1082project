@@ -1,20 +1,16 @@
 package edu.game.Component;
 public class Computer extends Player {
+
+	private int choice;
 	
-	private String name = "computer";
-	Player comp = new Player();
-			
+	//generate random computer choice for the game [1]shoot[2]block[3]reload - methods
 	public void computerChoice(){
-		choice = (int)(Math.random()*3)+1;	
-		
-	while(choice == 1 && ammo == 0) {
-		choice = (int)(Math.random()*3)+1;
+		do {
+			choice = (int)(Math.random()*3)+1;	
+		} while ((choice == 1 && ammo == 0)|| (choice == 2 && shield == 0));	
 	}
+	//getter - methods
+	public int getChoice() {
+		return choice;
 	}
-
-	@Override
-	public String toString() {
-		return super.toString();
-	}
-
 }
