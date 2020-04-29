@@ -45,7 +45,7 @@ public class Game {
 	}
 	//compute human reload vs computer random choice -methods
 	public void reload() {
-		human.ammo = 3;
+		human.ammo = human.getAmmo() + 1;
 		human.shield = 3;
 		computer.computerChoice();	
 		if(computer.getChoice() == 1) { //computer shoot
@@ -57,7 +57,7 @@ public class Game {
 			computer.shield  -= 1;
 		}
 		else if(computer.getChoice() == 3) { //computer reload
-			computer.ammo  = 3;
+			computer.ammo  = computer.getAmmo() + 1;
 			computer.shield  = 3;			
 		}
 	}
