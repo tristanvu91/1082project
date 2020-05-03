@@ -11,7 +11,7 @@ public class Game {
 	public void shoot() {
 		human.ammo -= 1;
 		human.shield = 3;
-		computer.computerChoice();		
+		computer.computerChoice();
 		if(computer.getChoice() == 1) { //computer shoot			
 			human.life  -= 1;
 			computer.life  -= 1;
@@ -23,7 +23,7 @@ public class Game {
 		}			
 		else if(computer.getChoice() == 3) { //computer reload
 			computer.life  -= 1;
-			computer.ammo  = 3;
+			computer.ammo  += 1;
 			computer.shield  = 3;
 		}
 	}
@@ -39,13 +39,13 @@ public class Game {
 			computer.shield  -= 1;
 		}
 		else if(computer.getChoice() == 3) { //computer reload
-			computer.ammo  = 3;
+			computer.ammo  += 1;
 			computer.shield  = 3;			
 		}
 	}
 	//compute human reload vs computer random choice -methods
 	public void reload() {
-		human.ammo = human.getAmmo() + 1;
+		human.ammo += 1;
 		human.shield = 3;
 		computer.computerChoice();	
 		if(computer.getChoice() == 1) { //computer shoot
@@ -57,10 +57,11 @@ public class Game {
 			computer.shield  -= 1;
 		}
 		else if(computer.getChoice() == 3) { //computer reload
-			computer.ammo  = computer.getAmmo() + 1;
+			computer.ammo   += 1;
 			computer.shield  = 3;			
 		}
-	}
+	}	
+	//reset life-ammo-shield for new game - methods
 	public void setNewGame() {
 		human.life  = computer.life = 3;
 		human.shield = computer.shield  = 3;
@@ -70,7 +71,7 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		String message = 	"Round: " + (rounds++) + "\n" +
+		return 	"Round: " + (rounds++) + "\n" +
 				"Player Counters: " + "\n" +
 				"---------------------" + "\n" +
 				"player life: " + human.getLife()+ "\n" +
@@ -82,7 +83,6 @@ public class Game {
 				"computer life: " + computer.getLife()+ "\n" +
 				"computer ammo: " + computer.getAmmo()+ "\n" +
 				"computer shield: " + computer.getShield()+ "\n" ;
-		return message;
 	}
 
 
