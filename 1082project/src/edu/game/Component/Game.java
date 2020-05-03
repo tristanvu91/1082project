@@ -71,7 +71,7 @@ public class Game {
 	
 	@Override
 	public String toString() {
-		return 	"Round: " + (rounds++) + "\n" +
+		return 	"Round: " + (rounds++) + " \n" +
 				"Player Counters: " + "\n" +
 				"---------------------" + "\n" +
 				"player life: " + human.getLife()+ "\n" +
