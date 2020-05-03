@@ -9,35 +9,37 @@ public class GameAction implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equalsIgnoreCase("Shoot")
 				&& humanHasAmmo()){ //Shoot button called and check for ammo
-			GameGui.getGame().shoot();
-			GameGui.getTextArea().setText(GameGui.getGame().toString());
+			GameGui.getNewGame().shoot();
+			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
-		} else if(e.getActionCommand().equalsIgnoreCase("Block")
+		} 
+		else if(e.getActionCommand().equalsIgnoreCase("Block")
 				&& humanHasGuard()) { //Block button called and check for shield
-			GameGui.getGame().guard();
-			GameGui.getTextArea().setText(GameGui.getGame().toString());
+			GameGui.getNewGame().guard();
+			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
-		} else if(e.getActionCommand().equalsIgnoreCase("Reload")) { //Reload button called
-			GameGui.getGame().reload();
-			GameGui.getTextArea().setText(GameGui.getGame().toString());
+		}
+		else if(e.getActionCommand().equalsIgnoreCase("Reload")) { //Reload button called
+			GameGui.getNewGame().reload();
+			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
-		} else if(e.getActionCommand().equalsIgnoreCase("Start Game")) { //Start Game button called
-			GameGui.getTextArea().setText(GameGui.getGame().toString());
-			GameGui.createFightPanel();
-		} else if(e.getActionCommand().equalsIgnoreCase("Continue")) { //New Game button called
-			GameGui.createMenuPanel();
-			GameGui.getGame().setNewGame();
-		} else if(e.getActionCommand().equalsIgnoreCase("Exist")) { //Exist button called
-			 System.exit(0);
+		}
+		else if(e.getActionCommand().equalsIgnoreCase("Start Game")) { //Start Game button called
+			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
+			GameGui.addFightButton();
+		}
+		else if(e.getActionCommand().equalsIgnoreCase("New Game")) { //New Game button called
+			GameGui.addStarMenuButton();
+			GameGui.getNewGame().setNewGame();
 		}
 	}
 	//check for human ammo  -methods
 	public boolean humanHasAmmo() {		
-		if (GameGui.getGame().human.getAmmo() == 0 
-				&& GameGui.getGame().human.getShield() == 0) {
+		if (GameGui.getNewGame().human.getAmmo() == 0 
+				&& GameGui.getNewGame().human.getShield() == 0) {
 			GameGui.getTextArea().append("Can't shoot or guard!!\n");
 			return false;
-		} else if (GameGui.getGame().human.getAmmo() == 0) {
+		} else if (GameGui.getNewGame().human.getAmmo() == 0) {
 			GameGui.getTextArea().append("Can't shoot!!\n");
 			return false;
 		}
@@ -45,11 +47,11 @@ public class GameAction implements ActionListener{
 	}
 	//check for human shield  -methods
 	public boolean humanHasGuard() {
-		if (GameGui.getGame().human.getAmmo() == 0 
-				&& GameGui.getGame().human.getShield() == 0) {
+		if (GameGui.getNewGame().human.getAmmo() == 0 
+				&& GameGui.getNewGame().human.getShield() == 0) {
 			GameGui.getTextArea().append("Can't shoot or guard!!\n");
 			return false;
-		} else if (GameGui.getGame().human.getShield() == 0) {
+		} else if (GameGui.getNewGame().human.getShield() == 0) {
 			GameGui.getTextArea().append("Can't guard!!\n");
 			return false;
 		}		
@@ -57,16 +59,16 @@ public class GameAction implements ActionListener{
 	}
 	//searching for winner and display if has one -methods
 	public void hasWinner() {
-		if (GameGui.getGame().human.getLife() == 0 
-				&& GameGui.getGame().computer.getLife() == 0) {
+		if (GameGui.getNewGame().human.getLife() == 0 
+				&& GameGui.getNewGame().computer.getLife() == 0) {
 			GameGui.getTextArea().append("Draw!!\n");
-			GameGui.createConitinuePanel();
-		} else if (GameGui.getGame().human.getLife() == 0) {
+			GameGui.addNewGameButton();
+		} else if (GameGui.getNewGame().human.getLife() == 0) {
 			GameGui.getTextArea().append("Computer win!!\n");
-			GameGui.createConitinuePanel();
-		} else if (GameGui.getGame().computer.getLife() == 0) {
+			GameGui.addNewGameButton();
+		} else if (GameGui.getNewGame().computer.getLife() == 0) {
 			GameGui.getTextArea().append("Human win!!\n");
-			GameGui.createConitinuePanel();
+			GameGui.addNewGameButton();
 		}
 	}	
 }
