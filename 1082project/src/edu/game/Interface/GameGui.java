@@ -17,7 +17,6 @@ public class GameGui extends JFrame{
 	private static JPanel imagePanel = new JPanel(new FlowLayout());
 	private static JLabel firstImage = new JLabel();
 	private static JLabel secondImage = new JLabel();
-
 	
 	private static JPanel startMenu = new JPanel(new FlowLayout());
 	private JPanel gameOverMenu = new JPanel(new FlowLayout());
@@ -29,7 +28,7 @@ public class GameGui extends JFrame{
 	private static JButton btnReload = new JButton("Reload");
 	private static JButton btnNewGame = new JButton("New Game");
 	private static JButton btnStartGame = new JButton("Start Game");
-	private static JButton btnExist = new JButton("Exist");
+	private static JButton btnExist = new JButton("Exit");
 	private static Game newGame = new Game();
 
 
@@ -69,7 +68,7 @@ public class GameGui extends JFrame{
 	
 	public void createImagePanel() {
 		add(imagePanel, BorderLayout.CENTER);
-		imagePanel.add(getFirstImage());
+		imagePanel.add(firstImage);
 		imagePanel.add(secondImage);
 	}
 
@@ -78,15 +77,10 @@ public class GameGui extends JFrame{
 		add(pane, BorderLayout.NORTH);
 		textArea.setEditable(false);
 	}
-//	public void createBottomPanel() {
-//		add(bottomPanel, BorderLayout.SOUTH);
-//		bottomPanel.add(btnBlock);
-//		bottomPanel.add(btnReload);
-//		bottomPanel.add(btnShoot);
-//		
-//	}
+
 	public static void addStarMenuButton() {
 		startMenu.setVisible(false);
+		imagePanel.setVisible(true);
 		startMenu.add(lblName);
 		startMenu.add(txtName);
 		startMenu.add(btnStartGame);
@@ -99,6 +93,7 @@ public class GameGui extends JFrame{
 	}
 	public static void addFightButton() {
 		startMenu.setVisible(false);
+		imagePanel.setVisible(true);
 		startMenu.remove(lblName);
 		startMenu.remove(txtName);
 		startMenu.remove(btnStartGame);
@@ -131,17 +126,14 @@ public class GameGui extends JFrame{
 		return startMenu;
 	}
 
-
-	public static JLabel getFirstImage() {
-		return firstImage;
+	public static void addFirstImage(ImageIcon x) {
+		GameGui.firstImage.setIcon(x);
+		imagePanel.add(firstImage);
 	}
-
-	public static void setFirstImage(Object object) {
-		GameGui.firstImage = (JLabel) object;
-	}
-
-	public static JLabel getSecondImage() {
-		return secondImage;
+	
+	public static void addSecondImage(ImageIcon x) {
+		GameGui.secondImage.setIcon(x);
+		imagePanel.add(secondImage);
 	}
 
 	public static void setSecondImage(JLabel secondImage) {

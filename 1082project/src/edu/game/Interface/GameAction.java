@@ -2,33 +2,42 @@ package edu.game.Interface;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class GameAction implements ActionListener{	
-	private JLabel addImage = new JLabel();
-	private ImageIcon icShield = new ImageIcon("shield.jpg");
+	public JLabel addImage = new JLabel();
 
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equalsIgnoreCase("Shoot")
 				&& humanHasAmmo()){ //Shoot button called and check for ammo
-			addImage.setIcon(icShield);
+			ImageIcon icGun = new ImageIcon("gun.jpg");  // Displays picture when is clicked.
+			GameGui.addFirstImage(icGun); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
 			
-			GameGui.setFirstImage(addImage);
 			GameGui.getNewGame().shoot();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
 		} 
 		else if(e.getActionCommand().equalsIgnoreCase("Block")
 				&& humanHasGuard()) { //Block button called and check for shield
+
+			ImageIcon icShield = new ImageIcon("shield.jpg");  // Displays picture when is clicked.
+			GameGui.addFirstImage(icShield); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
+			
 			GameGui.getNewGame().guard();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
 		}
 		else if(e.getActionCommand().equalsIgnoreCase("Reload")) { //Reload button called
+			
+			ImageIcon icAmmo = new ImageIcon("Your Choice: ", "ammo.jpg");  // Displays picture when is clicked.
+			GameGui.addFirstImage(icAmmo); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
+			
 			GameGui.getNewGame().reload();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();
@@ -76,7 +85,7 @@ public class GameAction implements ActionListener{
 			GameGui.getTextArea().append("Computer win!!\n");
 			GameGui.addNewGameButton();
 		} else if (GameGui.getNewGame().computer.getLife() == 0) {
-			GameGui.getTextArea().append("Human win!!\n");
+			GameGui.getTextArea().append("YOU WIN!!\n");
 			GameGui.addNewGameButton();
 		}
 	}	
