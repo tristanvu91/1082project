@@ -1,14 +1,23 @@
 package edu.game.Interface;
 
-import edu.game.Component.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 public class GameAction implements ActionListener{	
+	private JLabel addImage = new JLabel();
+	private ImageIcon icShield = new ImageIcon("shield.jpg");
+
+	
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equalsIgnoreCase("Shoot")
 				&& humanHasAmmo()){ //Shoot button called and check for ammo
+			addImage.setIcon(icShield);
+			
+			GameGui.setFirstImage(addImage);
 			GameGui.getNewGame().shoot();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
 			hasWinner();

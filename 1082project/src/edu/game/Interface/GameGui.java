@@ -8,13 +8,17 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
 import javax.swing.JLabel;
 
 public class GameGui extends JFrame{
-	private JPanel topPanel = new JPanel(new BorderLayout());
-	private JPanel bottomPanel = new JPanel(new FlowLayout());
+	private static JPanel imagePanel = new JPanel(new FlowLayout());
+	private static JLabel firstImage = new JLabel();
+	private static JLabel secondImage = new JLabel();
+
+	
 	private static JPanel startMenu = new JPanel(new FlowLayout());
 	private JPanel gameOverMenu = new JPanel(new FlowLayout());
 	private static JTextArea textArea = new JTextArea();
@@ -27,7 +31,7 @@ public class GameGui extends JFrame{
 	private static JButton btnStartGame = new JButton("Start Game");
 	private static JButton btnExist = new JButton("Exist");
 	private static Game newGame = new Game();
-	
+
 
 	public GameGui() {		
 		setTitle("Block, Shoot, Reload");
@@ -49,21 +53,29 @@ public class GameGui extends JFrame{
 	}
 
 	public void setListener() {
-		GameAction actioonLsitener = new GameAction();
-		btnShoot.addActionListener(actioonLsitener);
-		btnBlock.addActionListener(actioonLsitener);
-		btnReload.addActionListener(actioonLsitener);
-		btnStartGame.addActionListener(actioonLsitener);
-		btnNewGame.addActionListener(actioonLsitener);
+		GameAction actionListener = new GameAction();
+		btnShoot.addActionListener(actionListener);
+		btnBlock.addActionListener(actionListener);
+		btnReload.addActionListener(actionListener);
+		btnStartGame.addActionListener(actionListener);
+		btnNewGame.addActionListener(actionListener);
 	}
 
 	public void addPanelsToFrame() {
 		createTopPanel();
+		createImagePanel();
 		addStarMenuButton();
 	}
+	
+	public void createImagePanel() {
+		add(imagePanel, BorderLayout.CENTER);
+		imagePanel.add(getFirstImage());
+		imagePanel.add(secondImage);
+	}
+
 	public void createTopPanel() {
 		JScrollPane pane = new JScrollPane(textArea);
-		add(pane, BorderLayout.CENTER);
+		add(pane, BorderLayout.NORTH);
 		textArea.setEditable(false);
 	}
 //	public void createBottomPanel() {
@@ -118,9 +130,26 @@ public class GameGui extends JFrame{
 	public static JPanel getStartMenu() {
 		return startMenu;
 	}
+
+
+	public static JLabel getFirstImage() {
+		return firstImage;
+	}
+
+	public static void setFirstImage(Object object) {
+		GameGui.firstImage = (JLabel) object;
+	}
+
+	public static JLabel getSecondImage() {
+		return secondImage;
+	}
+
+	public static void setSecondImage(JLabel secondImage) {
+		GameGui.secondImage = secondImage;
+	}
 	
 	public static void main(String[]args) {
 		GameGui gui = new GameGui();
 	}
-	
+
 }
