@@ -35,7 +35,7 @@ public class GameAction implements ActionListener{
 		}
 		else if(e.getActionCommand().equalsIgnoreCase("Reload")) { //Reload button called
 			
-			ImageIcon icAmmo = new ImageIcon("Your Choice: ", "ammo.jpg");  // Displays picture when is clicked.
+			ImageIcon icAmmo = new ImageIcon("ammo.jpg");  // Displays picture when is clicked.
 			GameGui.addFirstImage(icAmmo); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
 			
 			GameGui.getNewGame().reload();
