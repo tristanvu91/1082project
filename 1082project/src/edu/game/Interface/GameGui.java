@@ -3,6 +3,8 @@ package edu.game.Interface;
 import edu.game.Component.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -14,15 +16,23 @@ import edu.game.Component.Game;
 import javax.swing.JLabel;
 
 public class GameGui extends JFrame{
-	private static JPanel imagePanel = new JPanel(new FlowLayout());
+	//Variables
+	//Start of: JLABELS
+	private static JLabel lblName = new JLabel("Name");
+	private static JLabel playerTag = new JLabel("PLAYER CHOICE: ");
+	private static JLabel computerTag = new JLabel("COMPUTER CHOICE: ");
 	private static JLabel playerImage = new JLabel();
 	private static JLabel computerImage = new JLabel();
-	
+	//Start of: JPanels
+	private static JPanel middlePanel = new JPanel(new BorderLayout());
+	private static JPanel imagePanel = new JPanel(new GridLayout(1,2));
+	private static JPanel middleTopPanel = new JPanel(new GridLayout(1,2));
 	private static JPanel startMenu = new JPanel(new FlowLayout());
 	private JPanel gameOverMenu = new JPanel(new FlowLayout());
+	//Start of: TextFields/TextArea
 	private static JTextArea textArea = new JTextArea();
 	private static JTextField txtName = new JTextField(15);
-	private static JLabel lblName = new JLabel("Name");
+	//Start of: JButtons
 	private static JButton btnShoot = new JButton("Shoot");
 	private static JButton btnBlock = new JButton("Block");
 	private static JButton btnReload = new JButton("Reload");
@@ -30,7 +40,6 @@ public class GameGui extends JFrame{
 	private static JButton btnStartGame = new JButton("Start Game");
 	private static JButton btnExist = new JButton("Exit");
 	private static Game newGame = new Game();
-
 
 	public GameGui() {		
 		setTitle("Block, Shoot, Reload");
@@ -62,12 +71,20 @@ public class GameGui extends JFrame{
 
 	public void addPanelsToFrame() {
 		createTopPanel();
+		createMiddlePanel();
 		createImagePanel();
 		addStarMenuButton();
 	}
 	
+	private void createMiddlePanel() {
+		add(middlePanel, BorderLayout.CENTER);
+		middlePanel.add(middleTopPanel, BorderLayout.NORTH);
+		middleTopPanel.add(playerTag);
+		middleTopPanel.add(computerTag);
+		middlePanel.add(imagePanel, BorderLayout.CENTER);
+	}
+
 	public void createImagePanel() {
-		add(imagePanel, BorderLayout.CENTER);
 		imagePanel.add(playerImage);
 		imagePanel.add(computerImage);
 	}
