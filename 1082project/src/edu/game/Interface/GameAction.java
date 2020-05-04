@@ -88,6 +88,8 @@ public class GameAction implements ActionListener{
 			GameGui.addNewGameButton();
 		} else if (GameGui.getNewGame().computer.getLife() == 0) {
 			GameGui.getTextArea().append("YOU WIN!!\n");
+			ImageIcon youWin = new ImageIcon("youwin.jpg");
+			GameGui.addFirstImage(youWin);
 			GameGui.addNewGameButton();
 		}
 	}	
