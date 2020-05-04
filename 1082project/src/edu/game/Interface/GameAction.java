@@ -1,11 +1,8 @@
 package edu.game.Interface;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -48,6 +45,9 @@ public class GameAction implements ActionListener{
 		else if(e.getActionCommand().equalsIgnoreCase("New Game")) { //New Game button called
 			GameGui.addStarMenuButton();
 			GameGui.getNewGame().setNewGame();
+		}
+		else if(e.getActionCommand().equalsIgnoreCase("Exit")) { //Exit Button Called
+			System.exit(0);
 		}
 	}
 	//check for human ammo  -methods

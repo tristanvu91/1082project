@@ -1,10 +1,8 @@
 package edu.game.Interface;
 
-import edu.game.Component.*;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -14,7 +12,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 public class GameGui extends JFrame{
 	//Variables
@@ -39,7 +36,7 @@ public class GameGui extends JFrame{
 	private static JButton btnReload = new JButton("Reload");
 	private static JButton btnNewGame = new JButton("New Game");
 	private static JButton btnStartGame = new JButton("Start Game");
-	private static JButton btnExist = new JButton("Exit");
+	private static JButton btnExit = new JButton("Exit");
 	private static Game newGame = new Game();
 
 	public GameGui() {		
@@ -51,7 +48,6 @@ public class GameGui extends JFrame{
 				"1: You start with 3 lives.\n" +
 				"2: You cannot shoot if you do not have ammo.. Duh.\n" +
 				"3: You cannot block more than 3 times in a row.\n"  +
-				"*Caution: If you try to do more than 3 blocks, Your shield will break!\n" +
 				"4: To win, you must deplete your oppenents health to zero!\n" +
 				"Have fun, and remember to stay safe!\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,6 +64,7 @@ public class GameGui extends JFrame{
 		btnReload.addActionListener(actionListener);
 		btnStartGame.addActionListener(actionListener);
 		btnNewGame.addActionListener(actionListener);
+		btnExit.addActionListener(actionListener);
 	}
 
 	public void addPanelsToFrame() {
@@ -106,7 +103,7 @@ public class GameGui extends JFrame{
 		startMenu.remove(btnReload);
 		startMenu.remove(btnShoot);
 		startMenu.remove(btnNewGame);
-		startMenu.remove(btnExist);
+		startMenu.remove(btnExit);
 		startMenu.setVisible(true);
 	}
 	public static void addFightButton() {
@@ -116,7 +113,7 @@ public class GameGui extends JFrame{
 		startMenu.remove(txtName);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnNewGame);
-		startMenu.remove(btnExist);
+		startMenu.remove(btnExit);
 		startMenu.add(btnBlock);
 		startMenu.add(btnReload);
 		startMenu.add(btnShoot);
@@ -131,7 +128,7 @@ public class GameGui extends JFrame{
 		startMenu.remove(btnReload);
 		startMenu.remove(btnShoot);
 		startMenu.add(btnNewGame);
-		startMenu.add(btnExist);
+		startMenu.add(btnExit);
 		startMenu.setVisible(true);
 	}	
 	public static JTextArea getTextArea() {
