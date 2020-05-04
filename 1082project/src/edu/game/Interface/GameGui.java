@@ -15,8 +15,8 @@ import javax.swing.JLabel;
 
 public class GameGui extends JFrame{
 	private static JPanel imagePanel = new JPanel(new FlowLayout());
-	private static JLabel firstImage = new JLabel();
-	private static JLabel secondImage = new JLabel();
+	private static JLabel playerImage = new JLabel();
+	private static JLabel computerImage = new JLabel();
 	
 	private static JPanel startMenu = new JPanel(new FlowLayout());
 	private JPanel gameOverMenu = new JPanel(new FlowLayout());
@@ -34,7 +34,7 @@ public class GameGui extends JFrame{
 
 	public GameGui() {		
 		setTitle("Block, Shoot, Reload");
-		setSize(600,600);
+		setSize(800,800);
 		textArea.setText("Welcome Player, to : Shoot, Shield, Reload!\n" +
 				"Rules of the game: \n" +
 				"--------------------\n" +
@@ -68,8 +68,8 @@ public class GameGui extends JFrame{
 	
 	public void createImagePanel() {
 		add(imagePanel, BorderLayout.CENTER);
-		imagePanel.add(firstImage);
-		imagePanel.add(secondImage);
+		imagePanel.add(playerImage);
+		imagePanel.add(computerImage);
 	}
 
 	public void createTopPanel() {
@@ -127,17 +127,18 @@ public class GameGui extends JFrame{
 	}
 
 	public static void addFirstImage(ImageIcon x) {
-		GameGui.firstImage.setIcon(x);
-		imagePanel.add(firstImage);
+		GameGui.playerImage.setIcon(x);
+		imagePanel.add(playerImage);
 	}
 	
 	public static void addSecondImage(ImageIcon x) {
-		GameGui.secondImage.setIcon(x);
-		imagePanel.add(secondImage);
+		GameGui.computerImage.setIcon(x);
+		imagePanel.add(computerImage);
 	}
-
-	public static void setSecondImage(JLabel secondImage) {
-		GameGui.secondImage = secondImage;
+	
+	public static void removePictures() {
+		GameGui.playerImage.setIcon(null);
+		GameGui.computerImage.setIcon(null);
 	}
 	
 	public static void main(String[]args) {
