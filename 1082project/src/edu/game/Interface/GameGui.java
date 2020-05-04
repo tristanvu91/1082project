@@ -19,6 +19,7 @@ import javax.swing.JLabel;
 
 
 public class GameGui extends JFrame{
+
 	private JPanel topPanel = new JPanel(new BorderLayout());
 	private static JPanel bottomPanel = new JPanel(new FlowLayout());
 	private static JTextArea textArea = new JTextArea();
@@ -30,6 +31,7 @@ public class GameGui extends JFrame{
 	private static JButton btnContinue = new JButton("Continue");
 	private static JButton btnStartGame = new JButton("Start Game");
 	private static JButton btnExist = new JButton("Exist");
+
 	private static Game game = new Game();
 	
 	
@@ -61,6 +63,7 @@ public class GameGui extends JFrame{
 	}
 	//actionLsitener
 	public void setListener() {
+
 		GameAction actionLsitener = new GameAction();
 		btnShoot.addActionListener(actionLsitener);
 		btnBlock.addActionListener(actionLsitener);
@@ -75,6 +78,8 @@ public class GameGui extends JFrame{
 		createMenuPanel();
 		add(topPanel, BorderLayout.CENTER);
 		add(bottomPanel, BorderLayout.SOUTH);		
+		createImagePanel();
+
 	}
 	
 	public void createImagePanel() {
@@ -82,6 +87,7 @@ public class GameGui extends JFrame{
 		imagePanel.add(getFirstImage());
 		imagePanel.add(secondImage);
 	}
+
 	
 	
 	//create top panel - method
@@ -154,9 +160,28 @@ public class GameGui extends JFrame{
 	public static Game getGame() {
 		return game;
 	}
+
+
+	public static JLabel getFirstImage() {
+		return firstImage;
+	}
+
+	public static void setFirstImage(Object object) {
+		GameGui.firstImage = (JLabel) object;
+	}
+
+	public static JLabel getSecondImage() {
+		return secondImage;
+	}
+
+	public static void setSecondImage(JLabel secondImage) {
+		GameGui.secondImage = secondImage;
+	}
 	
 	public static void main(String[]args) {
 		GameGui gui = new GameGui();
 	}
+
 	
 }
+
