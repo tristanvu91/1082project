@@ -80,6 +80,8 @@ public class GameAction implements ActionListener{
 		if (GameGui.getNewGame().human.getLife() == 0 
 				&& GameGui.getNewGame().computer.getLife() == 0) {
 			GameGui.getTextArea().append("Draw!!\n");
+			ImageIcon draw = new ImageIcon("draw.jpg");
+			GameGui.addFirstImage(draw);
 			GameGui.addNewGameButton();
 		} else if (GameGui.getNewGame().human.getLife() == 0) {
 			GameGui.getTextArea().append("YOU LOSE!!\n");
