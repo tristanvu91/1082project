@@ -1,16 +1,15 @@
 package edu.game.Interface;
 
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.net.URL;
-
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class GameAction implements ActionListener{	
-	public JLabel addImage = new JLabel();
-
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -82,19 +81,22 @@ public class GameAction implements ActionListener{
 			GameGui.getTextArea().append("Draw!!\n");
 			GameGui.removePictures();
 			ImageIcon draw = new ImageIcon("draw.jpg");
-			GameGui.addFirstImage(draw);
+		    JLabel lbl = new JLabel(draw);
+		    JOptionPane.showMessageDialog(null, lbl, "It's a Draw!",JOptionPane.PLAIN_MESSAGE, null);  // Pop-up DRAW!
 			GameGui.addNewGameButton();
 		} else if (GameGui.getNewGame().human.getLife() == 0) {
 			GameGui.getTextArea().append("YOU LOSE!!\n");
 			GameGui.removePictures();
 			ImageIcon youLose = new ImageIcon("youlose.jpg");
-			GameGui.addFirstImage(youLose);
+		    JLabel lbl = new JLabel(youLose);
+		    JOptionPane.showMessageDialog(null, lbl, "Better Luck Next Time!",JOptionPane.PLAIN_MESSAGE, null); // Pop-up YOU LOSE!
 			GameGui.addNewGameButton();
 		} else if (GameGui.getNewGame().computer.getLife() == 0) {
 			GameGui.getTextArea().append("YOU WIN!!\n");
 			GameGui.removePictures();
 			ImageIcon youWin = new ImageIcon("youwin.jpg");
-			GameGui.addFirstImage(youWin);
+		    JLabel lbl = new JLabel(youWin);
+		    JOptionPane.showMessageDialog(null, lbl, "Congratulation!",JOptionPane.PLAIN_MESSAGE, null); //Pop-up YOU WIN!
 			GameGui.addNewGameButton();
 		}
 	}	

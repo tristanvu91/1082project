@@ -14,12 +14,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class GameGui extends JFrame{
 	//Variables
+	//Start of: TextFields/TextArea
+	private static JTextArea textArea = new JTextArea();
+	private static JTextField txtName = new JTextField(15);
 	//Start of: JLABELS
 	private static JLabel lblName = new JLabel("Name");
-	private static JLabel playerTag = new JLabel("PLAYER CHOICE: ");
+	private static JLabel playerTag = new JLabel("YOUR CHOICE: ");
 	private static JLabel computerTag = new JLabel("COMPUTER CHOICE: ");
 	private static JLabel playerImage = new JLabel();
 	private static JLabel computerImage = new JLabel();
@@ -29,9 +33,6 @@ public class GameGui extends JFrame{
 	private static JPanel middleTopPanel = new JPanel(new GridLayout(1,2));
 	private static JPanel startMenu = new JPanel(new FlowLayout());
 	private JPanel gameOverMenu = new JPanel(new FlowLayout());
-	//Start of: TextFields/TextArea
-	private static JTextArea textArea = new JTextArea();
-	private static JTextField txtName = new JTextField(15);
 	//Start of: JButtons
 	private static JButton btnShoot = new JButton("Shoot");
 	private static JButton btnBlock = new JButton("Block");
