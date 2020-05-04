@@ -30,17 +30,17 @@ public class Computer extends Player {
 	
 	public void shootPicture() {
 		ImageIcon icGun = new ImageIcon("gun.jpg");  // Displays picture when is clicked.
-		GameGui.addSecondImage(icGun); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
+		GameGui.addComputerImage(icGun); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
 	}
 	
 	public void blockPicture() {
 		ImageIcon icShield = new ImageIcon("shield.jpg");  // Displays picture when is clicked.
-		GameGui.addSecondImage(icShield); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
+		GameGui.addComputerImage(icShield); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
 	}
 	
 	public void shieldPicture() {
 		ImageIcon icAmmo = new ImageIcon("ammo.jpg");  // Displays picture when is clicked.
-		GameGui.addSecondImage(icAmmo); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
+		GameGui.addComputerImage(icAmmo); // goes into GameGui Class to access the method "addSecondImage" and adds it to GameGui.imagePanel
 		
 	}
 	

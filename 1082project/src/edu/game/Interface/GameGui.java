@@ -141,12 +141,12 @@ public class GameGui extends JFrame{
 		return startMenu;
 	}
 
-	public static void addFirstImage(ImageIcon x) {
+	public static void addPlayerImage(ImageIcon x) {
 		GameGui.playerImage.setIcon(x);
 		imagePanel.add(playerImage);
 	}
 	
-	public static void addSecondImage(ImageIcon x) {
+	public static void addComputerImage(ImageIcon x) {
 		GameGui.computerImage.setIcon(x);
 		imagePanel.add(computerImage);
 	}
