@@ -13,7 +13,7 @@ public class GameAction implements ActionListener{
 		if (e.getActionCommand().equalsIgnoreCase("Shoot")
 				&& humanHasAmmo()){ //Shoot button called and check for ammo
 			ImageIcon icGun = new ImageIcon("gun.jpg");  // Displays picture when is clicked.
-			GameGui.addPlayerImage(icGun); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
+			GameGui.addPlayerImage(icGun); // goes into GameGui Class to access the method "addPlayerImage" and adds it to GameGui.imagePanel
 			
 			GameGui.getNewGame().shoot();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
@@ -23,7 +23,7 @@ public class GameAction implements ActionListener{
 				&& humanHasGuard()) { //Block button called and check for shield
 
 			ImageIcon icShield = new ImageIcon("shield.jpg");  // Displays picture when is clicked.
-			GameGui.addPlayerImage(icShield); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
+			GameGui.addPlayerImage(icShield); // goes into GameGui Class to access the method "addPlayerImage" and adds it to GameGui.imagePanel
 			
 			GameGui.getNewGame().guard();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
@@ -32,7 +32,7 @@ public class GameAction implements ActionListener{
 		else if(e.getActionCommand().equalsIgnoreCase("Reload")) { //Reload button called
 			
 			ImageIcon icAmmo = new ImageIcon("ammo.jpg");  // Displays picture when is clicked.
-			GameGui.addPlayerImage(icAmmo); // goes into GameGui Class to access the method "addFirstImage" and adds it to GameGui.imagePanel
+			GameGui.addPlayerImage(icAmmo); // goes into GameGui Class to access the method "addPlayerImage" and adds it to GameGui.imagePanel
 			
 			GameGui.getNewGame().reload();
 			GameGui.getTextArea().setText(GameGui.getNewGame().toString());
