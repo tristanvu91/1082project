@@ -21,7 +21,7 @@ public class GameGui extends JFrame{
 	//Start of: JLABELS
 	private static JLabel lblName = new JLabel("Name");
 	private static JLabel playerTag = new JLabel("YOUR CHOICE: ");
-	private static JLabel computerTag = new JLabel("COMPUTER CHOICE: ");
+	private static JLabel computerTag = new JLabel("COMPUTER's CHOICE: ");
 	private static JLabel playerImage = new JLabel();
 	private static JLabel computerImage = new JLabel();
 	//Start of: JPanels
