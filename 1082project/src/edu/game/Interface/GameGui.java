@@ -1,13 +1,13 @@
 package edu.game.Interface;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
@@ -17,9 +17,9 @@ public class GameGui extends JFrame{
 	//Variables
 	//Start of: TextFields/TextArea
 	private static JTextArea textArea = new JTextArea();
-	private static JTextField txtName = new JTextField(15);
+//	private static JTextField txtName = new JTextField(15);  NOT IMPLEMENETED YET
 	//Start of: JLABELS
-	private static JLabel lblName = new JLabel("Name");
+//	private static JLabel lblName = new JLabel("Name");
 	private static JLabel playerTag = new JLabel("YOUR CHOICE: ");
 	private static JLabel computerTag = new JLabel("COMPUTER's CHOICE: ");
 	private static JLabel playerImage = new JLabel();
@@ -29,7 +29,6 @@ public class GameGui extends JFrame{
 	private static JPanel imagePanel = new JPanel(new GridLayout(1,2));
 	private static JPanel middleTopPanel = new JPanel(new GridLayout(1,2));
 	private static JPanel startMenu = new JPanel(new FlowLayout());
-	private JPanel gameOverMenu = new JPanel(new FlowLayout());
 	//Start of: JButtons
 	private static JButton btnShoot = new JButton("Shoot");
 	private static JButton btnBlock = new JButton("Block");
@@ -57,7 +56,8 @@ public class GameGui extends JFrame{
 		setListener();
 		setVisible(true);
 	}
-
+	//Start of Methods
+	//ActionListener Method
 	public void setListener() {
 		GameAction actionListener = new GameAction();
 		btnShoot.addActionListener(actionListener);
@@ -74,6 +74,12 @@ public class GameGui extends JFrame{
 		createImagePanel();
 		addStarMenuButton();
 	}
+
+	public void createTopPanel() {
+		JScrollPane pane = new JScrollPane(textArea);
+		add(pane, BorderLayout.NORTH);
+		textArea.setEditable(false);
+	}
 	
 	private void createMiddlePanel() {
 		add(middlePanel, BorderLayout.CENTER);
@@ -82,23 +88,17 @@ public class GameGui extends JFrame{
 		middleTopPanel.add(computerTag);
 		middlePanel.add(imagePanel, BorderLayout.CENTER);
 	}
-
+	
 	public void createImagePanel() {
 		imagePanel.add(playerImage);
 		imagePanel.add(computerImage);
 	}
 
-	public void createTopPanel() {
-		JScrollPane pane = new JScrollPane(textArea);
-		add(pane, BorderLayout.NORTH);
-		textArea.setEditable(false);
-	}
-
 	public static void addStarMenuButton() {
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
-		startMenu.add(lblName);
-		startMenu.add(txtName);
+//		startMenu.add(lblName);
+//		startMenu.add(txtName);
 		startMenu.add(btnStartGame);
 		startMenu.remove(btnBlock);
 		startMenu.remove(btnReload);
@@ -110,11 +110,14 @@ public class GameGui extends JFrame{
 	public static void addFightButton() {
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
-		startMenu.remove(lblName);
-		startMenu.remove(txtName);
+//		startMenu.remove(lblName);
+//		startMenu.remove(txtName);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnNewGame);
 		startMenu.remove(btnExit);
+		btnBlock.setPreferredSize(new Dimension(100,100));
+		btnReload.setPreferredSize(new Dimension(100,100));
+		btnShoot.setPreferredSize(new Dimension(100,100));
 		startMenu.add(btnBlock);
 		startMenu.add(btnReload);
 		startMenu.add(btnShoot);
@@ -122,8 +125,8 @@ public class GameGui extends JFrame{
 	}
 	public static void addNewGameButton() {
 		startMenu.setVisible(false);
-		startMenu.remove(lblName);
-		startMenu.remove(txtName);
+//		startMenu.remove(lblName);
+//		startMenu.remove(txtName);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnBlock);
 		startMenu.remove(btnReload);
