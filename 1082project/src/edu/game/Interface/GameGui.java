@@ -49,7 +49,8 @@ public class GameGui extends JFrame{
 				"2: You cannot shoot if you do not have ammo.. Duh.\n" +
 				"3: You cannot block more than 3 times in a row.\n"  +
 				"4: To win, you must deplete your oppenents health to zero!\n" +
-				"Have fun, and remember to stay safe!\n");
+				"Have fun, and remember to stay safe!\n" + 
+				"#COVID2020\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		addPanelsToFrame();
 		add(startMenu, BorderLayout.SOUTH);
