@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
@@ -17,7 +18,7 @@ public class GameGui extends JFrame{
 	//Variables
 	//Start of: TextFields/TextArea
 	private static JTextArea textArea = new JTextArea();
-//	private static JTextField txtName = new JTextField(15);  NOT IMPLEMENETED YET
+	private static JTextField txtName = new JTextField(15);  //NOT IMPLEMENETED YET
 	//Start of: JLABELS
 //	private static JLabel lblName = new JLabel("Name");
 	private static JLabel playerTag = new JLabel("YOUR CHOICE: ");
@@ -35,6 +36,7 @@ public class GameGui extends JFrame{
 	private static JButton btnReload = new JButton("Reload");
 	private static JButton btnNewGame = new JButton("New Game");
 	private static JButton btnStartGame = new JButton("Start Game");
+	private static JButton btnLeaderboard = new JButton("Leaderboard");
 	private static JButton btnExit = new JButton("Exit");
 	private static Game newGame = new Game();
 
@@ -51,6 +53,7 @@ public class GameGui extends JFrame{
 				"Have fun, and remember to stay safe!\n" + 
 				"#COVID2020\n");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		addPanelsToFrame();
 		add(startMenu, BorderLayout.SOUTH);
 		setListener();
@@ -66,6 +69,7 @@ public class GameGui extends JFrame{
 		btnStartGame.addActionListener(actionListener);
 		btnNewGame.addActionListener(actionListener);
 		btnExit.addActionListener(actionListener);
+		btnLeaderboard.addActionListener(actionListener);
 	}
 
 	public void addPanelsToFrame() {
@@ -97,9 +101,9 @@ public class GameGui extends JFrame{
 	public static void addStarMenuButton() {
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
-//		startMenu.add(lblName);
-//		startMenu.add(txtName);
+		startMenu.add(txtName);		
 		startMenu.add(btnStartGame);
+		startMenu.add(btnLeaderboard);
 		startMenu.remove(btnBlock);
 		startMenu.remove(btnReload);
 		startMenu.remove(btnShoot);
@@ -110,8 +114,8 @@ public class GameGui extends JFrame{
 	public static void addFightButton() {
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
-//		startMenu.remove(lblName);
-//		startMenu.remove(txtName);
+		txtName.setVisible(false);
+		startMenu.remove(btnLeaderboard);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnNewGame);
 		startMenu.remove(btnExit);
@@ -125,12 +129,11 @@ public class GameGui extends JFrame{
 	}
 	public static void addNewGameButton() {
 		startMenu.setVisible(false);
-//		startMenu.remove(lblName);
-//		startMenu.remove(txtName);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnBlock);
 		startMenu.remove(btnReload);
 		startMenu.remove(btnShoot);
+		startMenu.add(btnLeaderboard);
 		startMenu.add(btnNewGame);
 		startMenu.add(btnExit);
 		startMenu.setVisible(true);
@@ -144,24 +147,22 @@ public class GameGui extends JFrame{
 	public static JPanel getStartMenu() {
 		return startMenu;
 	}
-
+	public static JTextField getTxtName() {
+		return txtName;
+	}
 	public static void addPlayerImage(ImageIcon x) {
 		GameGui.playerImage.setIcon(x);
 		imagePanel.add(playerImage);
-	}
-	
+	}	
 	public static void addComputerImage(ImageIcon x) {
 		GameGui.computerImage.setIcon(x);
 		imagePanel.add(computerImage);
-	}
-	
+	}	
 	public static void removePictures() {
 		GameGui.playerImage.setIcon(null);
 		GameGui.computerImage.setIcon(null);
-	}
-	
+	}	
 	public static void main(String[]args) {
 		GameGui gui = new GameGui();
 	}
-
 }

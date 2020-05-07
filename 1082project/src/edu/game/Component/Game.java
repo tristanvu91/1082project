@@ -23,7 +23,7 @@ public class Game {
 		}			
 		else if(computer.getChoice() == 3) { //computer reload
 			computer.life  -= 1;
-			computer.ammo  = 3;
+			computer.ammo  += 1;
 			computer.shield  = 3;
 		}
 	}
@@ -39,7 +39,7 @@ public class Game {
 			computer.shield  -= 1;
 		}
 		else if(computer.getChoice() == 3) { //computer reload
-			computer.ammo  = 3;
+			computer.ammo  += 1;
 			computer.shield  = 3;			
 		}
 	}
@@ -57,7 +57,7 @@ public class Game {
 			computer.shield  -= 1;
 		}
 		else if(computer.getChoice() == 3) { //computer reload
-			computer.ammo  = computer.getAmmo() + 1;
+			computer.ammo  += 1;
 			computer.shield  = 3;			
 		}
 	}
