@@ -1,8 +1,8 @@
-# name:(undecided)
+# name:Block, Shoot, Reload
  
 # Description
 
-this projest is a game that is similar to a rock-paper-scissor game but instead will have a shoot-defend-reload systeme and some set of rules to be followed. The rules will be as followed:
+This program is a school project and will be a game. The game is similar to a rock-paper-scissor game but instead will have a shoot-defend-reload systeme and some set of rules to be followed. The rules will be as followed:
 
 -You can have a max of 3 ammo.
 
@@ -17,9 +17,27 @@ Reloading will fill your "gun".  Shooting will cause the other player to lose a 
 
 # Project features
 
+-Uses a GUI
 
+-Has Menu. start game, fight, and new game
 
+-display images for chosen fight action
 
+-record player data into a saved file
+
+-Has a sorted learderboard
+
+# Project requiments
+
+1.Must use the OOP principles
+
+2.Must use at least two packages
+
+3.Must include at least Sixclasses
+
+4.Must use Graphical User Interface (GUI)
+
+5.Must use GitHub
 
 # Project completition step-by-step
 
@@ -45,6 +63,15 @@ Step 4:
 
 -designing a GUI
 
+-step 6:
 
+-completed project
+
+-step 7:
+
+-Presentation
 
 # Credits
+
+Tristan Vu
+Austin Thor
