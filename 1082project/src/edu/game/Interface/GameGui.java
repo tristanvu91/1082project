@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import edu.game.Component.Game;
@@ -25,6 +26,7 @@ public class GameGui extends JFrame{
 	private static JLabel computerTag = new JLabel("COMPUTER's CHOICE: ");
 	private static JLabel playerImage = new JLabel();
 	private static JLabel computerImage = new JLabel();
+	private static JLabel name = new JLabel("Name:");
 	//Start of: JPanels
 	private static JPanel middlePanel = new JPanel(new BorderLayout());
 	private static JPanel imagePanel = new JPanel(new GridLayout(1,2));
@@ -101,7 +103,10 @@ public class GameGui extends JFrame{
 	public static void addStarMenuButton() {
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
-		startMenu.add(txtName);		
+		startMenu.add(name);		
+		name.setHorizontalAlignment(SwingConstants.RIGHT);
+		startMenu.add(txtName);
+		txtName.setVisible(true);
 		startMenu.add(btnStartGame);
 		startMenu.add(btnLeaderboard);
 		startMenu.remove(btnBlock);
@@ -115,6 +120,7 @@ public class GameGui extends JFrame{
 		startMenu.setVisible(false);
 		imagePanel.setVisible(true);
 		txtName.setVisible(false);
+		startMenu.remove(name);
 		startMenu.remove(btnLeaderboard);
 		startMenu.remove(btnStartGame);
 		startMenu.remove(btnNewGame);
